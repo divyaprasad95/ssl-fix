@@ -1,0 +1,11 @@
+To permanently fix the SSL tool error, do the following
+                        1. Create a directory in C:\ProgramData called pip via command prompt
+                                    >> mkdir C:\ProgramData\pip
+                        2. Create a configuration file (pip.ini) at C:\ProgramData\pip with notepad and add the below setting. The full file path will then be C:\ProgramData\pip\pip.ini:
+                                                [global]
+                                                trusted-host = pypi.org (new-line)
+                                                                                       files.pythonhosted.org
+                        3. In command prompt check if the above configuration is registered via the command 'pip config -v list'. You should see the below in the last line of the output:
+                                                global.trusted-host='pypi.org\nfiles.pythonhosted.org'
+                           The \n denotates a new-line that should be part of the trusted-host entry.
+
